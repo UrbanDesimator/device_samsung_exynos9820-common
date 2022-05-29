@@ -143,6 +143,8 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_HAVE_FOD),true)
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/init.udfps.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.udfps.rc
+
+EXTRA_UDFPS_ANIMATIONS := true
 endif
 
 # Keylayout
@@ -189,7 +191,10 @@ PRODUCT_PACKAGES += \
     libepicoperator
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(COMMON_PATH)/overlay-evolution \
+    $(COMMON_PATH)/overlay
+
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Permissions
